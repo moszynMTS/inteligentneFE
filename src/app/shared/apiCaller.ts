@@ -35,5 +35,8 @@ export class ApiCaller {
             params: {itemId}
         });
     }
+    ping(): Observable<any> {
+        return this.http.get<any>(this.APIUrl + this.typeName);
+    }
       
 }

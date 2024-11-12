@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-token: any = localStorage.getItem('token');
+  token: any = localStorage.getItem('token');
 
   constructor() {}
 
@@ -17,7 +17,7 @@ token: any = localStorage.getItem('token');
     if (this.token != null) {
       request = request.clone({
         setHeaders: {
-          Authorization: `${this.token}`
+          Authorization: `Bearer ${this.token}`
         }
       });
     }

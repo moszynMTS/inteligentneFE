@@ -42,4 +42,11 @@ export class HomeComponent implements OnInit {
     console.log(`Item with ID ${itemId} added to cart`);
     // Add your logic here to add the item to the cart
   }
+
+  ping(){
+    this.apiCaller.setControllerPath('Ping');
+    this.apiCaller.ping().subscribe((res:any)=>{
+      console.log("Ping res:", res);
+    })
+  }
 }
