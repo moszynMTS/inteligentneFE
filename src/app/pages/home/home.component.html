@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 mb-3" *ngFor="let item of items">
+        <div class="card">
+          <img src="https://via.placeholder.com/150" class="card-img-top" alt="Item image">
+          <div class="card-body">
+            <h5 class="card-title">{{ item?.title }}</h5>
+            <p class="card-text">{{ item?.price }} zł</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

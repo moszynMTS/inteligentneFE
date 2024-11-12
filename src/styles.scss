@@ -1,0 +1,122 @@
+// Color Variables
+$bgc1: #212121;
+$bgc2: #171717;
+$fc1: #ffffff;
+$accent1: #cf9e64;
+$accent2: #e6cc9b;
+
+html,
+body {
+    height: 100%;
+    background-color: $bgc1;
+    color: $fc1;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    transition: background-color 0.3s, color 0.3s; // Fixed transition definition
+}
+
+a {
+    color: $fc1;
+    text-decoration: none;
+    transition: color 0.3s; // Added transition for link color
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.full-height {
+    height: 100%;
+}
+
+.center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // Ensures the logo and menu are spaced out
+    background-color: $bgc2;
+
+    .logo {
+        height: 100px;
+        margin-left: 1rem;
+    }
+
+    .nav-menu {
+        display: flex;
+        justify-content: center; // Centers the nav menu horizontally
+        align-items: center; // Centers the items vertically
+        gap: 1rem; // Adds space between buttons
+        width: 100%; // Takes up full available width for centering
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            color: $fc1;
+            font-size: 1rem;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+
+            mat-icon {
+                margin-right: 0.5rem; // Space between the icon and the text
+                font-size: 1.5rem; // Adjust icon size
+            }
+
+            &:hover {
+                color: lighten($accent1, 10%);
+            }
+        }
+    }
+}
+
+.card {
+    background-color: $bgc2; // Set card background to the dark background
+    color: $fc1; // Set text color to white
+    border: 1px solid $bgc2; // Add border with accent color
+    border-radius: 8px; // Rounded corners for card
+    padding: 1rem; // Padding inside the card
+    margin-bottom: 1rem; // Space between cards
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s; // Smooth transition for scaling and shadow
+
+    &:hover {
+        transform: scale(1.02); // Slightly scale the card on hover
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Add shadow effect on hover
+        border: 1px solid $accent2;
+    }
+
+    .card-header {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+        color: $accent1
+    }
+
+    .card-body {
+        font-size: 1rem;
+
+        .item-price {
+            font-size: 1.25rem;
+            color: $accent1;
+        }
+    }
+
+    .buyButton {
+        color: $fc1;
+    }
+
+    .card-footer {
+        text-align: center;
+        margin-top: 1rem;
+    }
+}

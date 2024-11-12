@@ -1,0 +1,18 @@
+<div class="header">
+    <span>
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+    </span>
+    <span style="margin-right: 2%">
+        <nav class="nav-menu">
+            <button class="nav-button">
+                <mat-icon>home</mat-icon> {{ 'Header.Home' | translate }}
+              </button>
+            <button class="nav-button">
+              <mat-icon>shopping_basket</mat-icon> {{ 'Header.Cart' | translate }}
+            </button>
+            <button class="nav-button" (click)="switchLanguage()">
+              <mat-icon>g_translate</mat-icon> {{ 'Header.Lang' | translate }}
+            </button>
+          </nav>        
+    </span>
+</div>

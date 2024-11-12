@@ -1,0 +1,11 @@
+{
+    "Header":{
+        "Home": "Strona główna",
+        "Shop": "Sklep",
+        "Cart": "Koszyk",
+        "Lang": "Język"
+    },
+    "Home":{
+        "Title" : "Strona główna"
+    }
+}
