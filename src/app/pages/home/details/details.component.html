@@ -1,0 +1,25 @@
+<div class="container mt-4 details">
+  <div class="row">
+    <!-- Detail View Section -->
+    <div class="col-12">
+      <div class="card">
+        <div class="row">
+          <!-- Item Image -->
+          <div class="col-md-6">
+            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Item image">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body h-100">
+              <!-- Product Title -->
+              <h3 class="card-title py-2">{{ item?.title }}</h3>
+              <p class="card-text">{{ 'Home.Price' | translate }}: <strong>{{ item?.price }} zł</strong></p>
+              <p class="card-text">{{ 'Home.Description' | translate }}: </p>
+              <p>{{ item?.description }}</p>
+              <p class="card-text ml-auto">{{ 'Home.CreateDate' | translate }}: {{ item?.createDate | date:'shortDate' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

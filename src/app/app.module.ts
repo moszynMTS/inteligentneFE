@@ -3,16 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClient, HttpClientModule } from '@angular/common/http'; // Make sure to import HttpClientModule
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http'; // Make sure to import HttpClientModule
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { DetailsComponent } from './pages/details/details.component';
+import { TokenInterceptor } from './shared/tokenInterceptor';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ApiCaller } from './shared/apiCaller';
+import { HomeModule } from './pages/home/home.module';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,19 +25,19 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
-    DetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
     MatIconModule,
     HttpClientModule,
+    MatDialogModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -43,7 +46,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [
+    ApiCaller,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

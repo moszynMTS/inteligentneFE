@@ -6,6 +6,10 @@
         "Lang": "Język"
     },
     "Home":{
-        "Title" : "Strona główna"
+        "Title" : "Strona główna",
+        "ProductTitle": "Nazwa",
+        "Price" : "Cena",
+        "Description": "Opis",
+        "CreateDate": "Data dodania"
     }
 }

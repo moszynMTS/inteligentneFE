@@ -70,6 +70,16 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ],
+              "optimization": false,
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -82,6 +92,9 @@
             },
             "development": {
               "browserTarget": "InteligentneFE:build:development"
+            },
+            "staging": {
+              "browserTarget": "InteligentneFE:build:staging"
             }
           },
           "defaultConfiguration": "development"
