@@ -1,1 +1,48 @@
-<p>cart works!</p>
+<div class="container mt-4">
+    <div class="row">
+  
+      <div class="col-12">
+          <div class="card mb-3" style="flex-direction: row;">
+            <div class="col-6">
+                <h4>{{ 'Cart.Total' | translate }}: {{ totalPrice | currency }}</h4>
+            </div>
+            <div class="col-6">
+                <a mat-icon-button (click)="buyItems()" class="add-to-cart-button btn btn-borderless">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                </a>
+            </div>
+          </div>
+      </div>
+      <div class="col-12" *ngFor="let item of cartItems">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-2">
+              <img src="https://via.placeholder.com/150" class="card-img" alt="Item image">
+            </div>
+            <div class="col-md-9">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.price | currency }}</p>
+                <p class="card-text">{{ 'Cart.Quantity' | translate }}: {{ item.quantity }}</p>
+                
+                <span style="right: 2rem; position: absolute;">
+                    <button (click)="updateQuantity(item.id, 1)" class="btn btn-borderless">
+                        <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                    <button (click)="updateQuantity(item.id, -1)" class="btn btn-borderless">
+                        <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
+                    <button (click)="removeItem(item.id)" class="btn btn-borderless">
+                        <mat-icon>remove_shopping_cart</mat-icon>
+                    </button>
+
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

@@ -3,6 +3,7 @@
         "Home": "Strona główna",
         "Shop": "Sklep",
         "Cart": "Koszyk",
+        "Account": "Konto",
         "Lang": "Język"
     },
     "Home":{
@@ -11,5 +12,26 @@
         "Price" : "Cena",
         "Description": "Opis",
         "CreateDate": "Data dodania"
+    },
+    "Cart":{
+        "Quantity" : "Ilość",
+        "Total" : "Cena",
+        "Buy" : "Kup"
+    },
+    "Account":{
+        "Username": "Nazwa konta",
+        "Email" : "Email",
+        "Joined": "Dołączono",
+        "Login" : "Login",
+        "Password": "Hasło"
+    },
+    "Snackbar":{
+        "Close" : "Zamknij",
+        "Logged" : "Zalogowano",
+        "Bought" : "Kupiono",
+        "CartAdd" : "Dodano przedmiot do koszyka"
+    },
+    "ValidationErrors":{
+        "Invalid": "Niepoprawne dane"
     }
 }

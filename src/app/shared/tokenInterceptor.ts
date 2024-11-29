@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  token: any = localStorage.getItem('token');
+  token: any = this.getCookie() ?? null;
 
   constructor() {}
 
@@ -23,5 +23,11 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request);
+  }
+  getCookie(): string | null {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; token=`);
+    if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
+    return null;
   }
 }

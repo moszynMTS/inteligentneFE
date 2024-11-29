@@ -14,8 +14,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TokenInterceptor } from './shared/tokenInterceptor';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ApiCaller } from './shared/apiCaller';
-import { HomeModule } from './pages/home/home.module';
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

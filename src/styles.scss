@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 $bgc1: #212121;
 $bgc2: #171717;
 $bgc3: #333333;
@@ -40,7 +41,8 @@ a {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    //justify-content: space-around;
+    gap: 31vw;
     background-color: $bgc2;
     position: fixed;
     top: 0;
@@ -50,7 +52,7 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     .logo {
         height: 100px;
-        margin-left: 1rem;
+        margin-left: 16vw;
     }
 
     .nav-menu {
@@ -121,20 +123,19 @@ a {
     padding: 1rem;
     margin-bottom: 1rem;
     transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
-
+    
     .card-header {
-        font-size: 1.5rem;
         font-weight: bold;
         margin-bottom: 0.5rem;
     }
-
+    
     .card-title {
+        font-size: 1.2rem;
         color: $accent1;
     }
 
     .card-body {
         font-size: 1rem;
-
         .item-price {
             font-size: 1.25rem;
             color: $accent1;
@@ -150,7 +151,33 @@ a {
         margin-top: 1rem;
     }
 }
-
+.btn, .btn:disabled{
+    margin-top: 1rem;
+    border: 1px solid gray;
+    color: gray;
+    background-color: rgba(0,0,0,0);
+    opacity: 1;
+}
+.btn:hover{
+    border: 1px solid $accent1;
+    color: $accent1;
+}
+.btn-borderless, .btn-borderless:hover{
+    border: 0px;
+}
+.text-danger{
+    font-size: 14px;
+    position: absolute;
+}
+.form-group{
+    margin-bottom: 1.5rem;
+}
+.iconTitle{
+    min-width: 6.5rem;
+}
+.mat-button{
+    color: $accent1 !important;
+}
 @media (max-width: 600px) {
     .iconTitle {
         display: none;

@@ -38,5 +38,8 @@ export class ApiCaller {
     ping(): Observable<any> {
         return this.http.get<any>(this.APIUrl + this.typeName);
     }
+    login(login: string, password: string): Observable<any> {
+        return this.http.post<any>(`${this.APIUrl}${this.typeName}/login`, { login, password });
+    }
       
 }

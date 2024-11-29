@@ -1,11 +1,31 @@
 {
-    "Header":{
-        "Home": "Homepage",
+    "Header": {
+        "Home": "Home",
         "Shop": "Shop",
         "Cart": "Cart",
+        "Account": "Account",
         "Lang": "Language"
     },
-    "Home":{
-        "Title" : "Homepage"
+    "Home": {
+        "Title": "Home",
+        "ProductTitle": "Product Name",
+        "Price": "Price",
+        "Description": "Description",
+        "CreateDate": "Date Added"
+    },
+    "Cart": {
+        "Quantity": "Quantity",
+        "Total": "Total",
+        "Buy": "Buy"
+    },
+    "Account": {
+        "Username": "Username",
+        "Email": "Email",
+        "Joined": "Joined",
+        "Login": "Login",
+        "Password": "Password"
+    },
+    "ValidationErrors": {
+        "Invalid": "Invalid data"
     }
 }

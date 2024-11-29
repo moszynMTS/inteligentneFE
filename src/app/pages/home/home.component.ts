@@ -3,6 +3,8 @@ import { ApiCaller } from 'src/app/shared/apiCaller';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailsComponent } from './details/details.component';
 import { TranslateService } from '@ngx-translate/core';
+import { ControllerNames } from 'src/app/shared/controlerNames';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  controlerName: string = 'Bike';
   items: any[] = [
     { id:1, title: 'Product 1', price: 19.99 },
     { id:2, title: 'Product 2', price: 29.99 },
@@ -22,8 +23,7 @@ export class HomeComponent implements OnInit {
     { id:8, title: 'Product 3', price: 39.99 },
     { id:9, title: 'Product 3', price: 39.99 },
   ];
-  constructor(private apiCaller: ApiCaller, private dialog: MatDialog, private translate: TranslateService) { 
-    console.log("HOME")
+  constructor(private apiCaller: ApiCaller, private dialog: MatDialog, private translate: TranslateService, private snackBar: MatSnackBar) { 
   }
 
   ngOnInit(): void {
@@ -31,17 +31,30 @@ export class HomeComponent implements OnInit {
   }
 
   loadData(){
-    this.apiCaller.setControllerPath(this.controlerName);
+    this.apiCaller.setControllerPath(ControllerNames.Product);
     // this.apiCaller.getList().subscribe((res:any) => {
     //   this.items = res;
     // })
   }
 
-  addCart(event: MouseEvent, itemId: number): void {
-    event.stopPropagation(); // Prevent event from bubbling up and triggering the RouterLink
-    console.log(`Item with ID ${itemId} added to cart`);
-    // Add your logic here to add the item to the cart
+  addCart(event: MouseEvent, item: any): void {
+    event.stopPropagation();
+    let cart = localStorage.getItem('cart') ?? '';
+    let cartArray = cart ? JSON.parse(cart) : [];
+    let existingItem = cartArray.find((itemEx: any) => itemEx.id === item.id);
+    if (existingItem != null && existingItem != undefined) {
+      existingItem.quantity += 1;
+    } else {
+      cartArray.push({ id:item.id, title:item.title, price:item.price, quantity: 1 });
+    }
+    this.snackBar.open(this.translate.instant('Snackbar.CartAdd'), this.translate.instant('Snackbar.Close'), {
+      duration: 2000,
+      horizontalPosition: 'center', 
+      verticalPosition: 'bottom'
+    });
+    localStorage.setItem('cart', JSON.stringify(cartArray));
   }
+  
 
   ping(){
     this.apiCaller.setControllerPath('Ping');

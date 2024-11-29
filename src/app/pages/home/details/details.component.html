@@ -16,6 +16,9 @@
               <p class="card-text">{{ 'Home.Description' | translate }}: </p>
               <p>{{ item?.description }}</p>
               <p class="card-text ml-auto">{{ 'Home.CreateDate' | translate }}: {{ item?.createDate | date:'shortDate' }}</p>
+              <a mat-icon-button (click)="addCart($event, item)" class="add-to-cart-button">
+                <mat-icon>add_shopping_cart</mat-icon>
+              </a>
             </div>
           </div>
         </div>

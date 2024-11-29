@@ -4,11 +4,14 @@
   </span>
   <span>
     <nav class="nav-menu">
-      <a class="nav-button" [routerLink]="'/home'">
+      <a class="nav-button" [routerLink]="'/'">
         <mat-icon>home</mat-icon> <span class="iconTitle">{{ 'Header.Home' | translate }}</span>
       </a>
       <a class="nav-button" [routerLink]="'/cart'">
         <mat-icon>shopping_basket</mat-icon> <span class="iconTitle">{{ 'Header.Cart' | translate }}</span>
+      </a>
+      <a class="nav-button" [routerLink]="'/account'">
+        <mat-icon>account_circle</mat-icon> <span class="iconTitle">{{ 'Header.Account' | translate }}</span>
       </a>
       <button class="nav-button" (click)="switchLanguage()">
         <mat-icon>g_translate</mat-icon>

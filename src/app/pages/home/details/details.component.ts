@@ -14,6 +14,18 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log("Details");
   }
+  addCart(event: MouseEvent, item: any): void {
+    event.stopPropagation();
+    let cart = localStorage.getItem('cart') ?? '';
+    let cartArray = cart ? JSON.parse(cart) : [];
+    let existingItem = cartArray.find((itemEx: any) => itemEx.id === item.id);
+    if (existingItem != null && existingItem != undefined) {
+      existingItem.quantity += 1;
+    } else {
+      cartArray.push({ id:item.id, title:item.title, price:item.price, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cartArray));
+  }
+  
 }
