@@ -47,9 +47,9 @@
   <div class="row">
     <div class="col-sm-12 col-md-3 mb-3" *ngFor="let item of items">
       <a class="card hoverEffect" >
-        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Item image" [routerLink]="['/details']" [queryParams]="{ id: item?.id }">
+        <img src="{{item.url}}" class="card-img-top" alt="Item image" [routerLink]="['/details']" [queryParams]="{ id: item?.id }">
         <a class="card-body" [routerLink]="['/details']" [queryParams]="{ id: item?.id }">
-          <h5 class="card-title">{{ item?.title }}</h5>
+          <h5 class="card-title">{{ item?.name }}</h5>
           <p class="card-text">{{ item?.price }} zł</p>
         </a>
         <a mat-icon-button (click)="addCart($event, item)" class="add-to-cart-button">

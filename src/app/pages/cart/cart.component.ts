@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     if (cart) {
       const cartArray = JSON.parse(cart);
       this.cartItems = cartArray.map((cartItem: any) => {
-        return { id: cartItem. id, quantity: cartItem.quantity, price: cartItem.price, title: cartItem.title };
+        return {...cartItem};
       });
 
       this.calculateTotal();

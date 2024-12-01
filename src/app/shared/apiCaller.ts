@@ -13,9 +13,8 @@ export class ApiCaller {
     public setControllerPath(controllerPath: string) {
         this.typeName = controllerPath;
     }
-    getList(search?: any): Observable<any[]> {
-        const payload = { search };
-        return this.http.get<any>(this.APIUrl + this.typeName, {params: payload });
+    getList(params: {}): Observable<any[]> {
+        return this.http.get<any>(this.APIUrl + this.typeName+'/pageable', {params: params });
     }
     getItem(itemId: any): Observable<any[]> {
         return this.http.get<any>(this.APIUrl + this.typeName+'/'+itemId);

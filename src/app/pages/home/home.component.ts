@@ -45,9 +45,9 @@ export class HomeComponent implements OnInit {
 
   loadData(){
     this.apiCaller.setControllerPath(ControllerNames.Product);
-    // this.apiCaller.getList().subscribe((res:any) => {
-    //   this.items = res;
-    // })
+    this.apiCaller.getList(this.searchForm.value).subscribe((res:any) => {
+      this.items = res.content.result;
+    })
   }
 
   addCart(event: MouseEvent, item: any): void {
@@ -58,7 +58,8 @@ export class HomeComponent implements OnInit {
     if (existingItem != null && existingItem != undefined) {
       existingItem.quantity += 1;
     } else {
-      cartArray.push({ id:item.id, title:item.title, price:item.price, quantity: 1 });
+      console.log({ id:item.id, title:item.name, price:item.price, quantity: 1, url: item.url })
+      cartArray.push({ id:item.id, title:item.name, price:item.price, quantity: 1, url: item.url });
     }
     this.snackBar.open(this.translate.instant('Snackbar.CartAdd'), this.translate.instant('Snackbar.Close'), {
       duration: 2000,
