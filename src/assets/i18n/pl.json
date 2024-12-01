@@ -16,7 +16,9 @@
         "RemoveSearch" : "Wyczyść wyszukiwanie",
         "Category" : "Kategoria",
         "Material" : "Materiał",
-        "Gender" : "Płeć"
+        "Gender" : "Płeć",
+        "NextPage": "Następna strona",
+        "PrevPage" : "Poprzednia strona"
     },
     "Cart":{
         "Quantity" : "Ilość",

@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
   categories: any[] = [{id: 1},{id: 2}]
   genders: any[] = [{id: 1},{id: 2}]
   materials: any[] = [{id: 1},{id: 2}]
+  total: number = 0;
+  totalPages: number = 1;
   searchForm: FormGroup; 
   constructor(private apiCaller: ApiCaller,private fb: FormBuilder, private dialog: MatDialog, private translate: TranslateService, private snackBar: MatSnackBar) { 
     this.searchForm = this.fb.group({
@@ -35,7 +37,7 @@ export class HomeComponent implements OnInit {
       gender: [""],
       material: [""],
       pageNumber: 1,
-      pageSize: 15,
+      pageSize: 16,
     });
   }
 
@@ -47,8 +49,20 @@ export class HomeComponent implements OnInit {
     this.apiCaller.setControllerPath(ControllerNames.Product);
     this.apiCaller.getList(this.searchForm.value).subscribe((res:any) => {
       this.items = res.content.result;
+      this.total = res.content.total;
+      this.totalPages =  res.content.total / this.searchForm.get('pageNumber')?.value;
     })
   }
+
+  changePage(operation: any) {
+    let pageNumber = this.searchForm.get('pageNumber')?.value;
+    const newPageNumber = pageNumber + operation;
+    if (newPageNumber >= 1 && newPageNumber <= this.totalPages) {
+      this.searchForm.get('pageNumber')?.patchValue(newPageNumber);
+      this.loadData();
+    }
+  }
+  
 
   addCart(event: MouseEvent, item: any): void {
     event.stopPropagation();

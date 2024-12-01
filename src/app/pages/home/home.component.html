@@ -59,4 +59,17 @@
       </a>
     </div>
   </div>
+  <div class="col-12">
+    <div class="card mb-3" style="flex-direction: row; ">
+      <form [formGroup]="searchForm" style="width: 100%; display: flex; justify-content: space-between;">
+        <a mat-icon-button (click)="changePage(-1)" class="btn btn-borderless" [title]="'Home.PrevPage' | translate">
+          <mat-icon>arrow_back</mat-icon>
+        </a>
+        <a mat-icon-button (click)="changePage(1)" class="btn btn-borderless" [title]="'Home.PrevPage' | translate">
+          <mat-icon>arrow_forward</mat-icon>
+        </a>
+       
+      </form>
+    </div>
+  </div>
 </div>
