@@ -14,11 +14,16 @@ export class AccountComponent implements OnInit {
   user: string | null = this.getCookie('user');
   token: string | null = this.getCookie('token');
   logged: boolean = false;
-  username: string = ''; // Store username for display
-  loginForm: FormGroup; // Define the login form
+  username: string = '';
+  loginForm: FormGroup; 
+  registerForm: FormGroup; 
 
   constructor(private apiCaller: ApiCaller, private fb: FormBuilder, private snackBar: MatSnackBar, private translate: TranslateService) { 
     this.loginForm = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    });
+    this.registerForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
@@ -58,6 +63,19 @@ export class AccountComponent implements OnInit {
         this.logged = true;
       }
     });
+  }
+  register(){
+    this.registerForm.markAllAsTouched();
+    if(this.registerForm.invalid) return;
+    this.apiCaller.setControllerPath(ControllerNames.Authorise);
+    this.apiCaller.addItem(this.registerForm.value).subscribe((res:any)=>{
+      console.log("Register", res)
+      this.snackBar.open(this.translate.instant('Snackbar.Registered'), this.translate.instant('Snackbar.Close'), {
+        duration: 3000,
+        horizontalPosition: 'center', 
+        verticalPosition: 'bottom'
+      });
+    })
   }
 
   setUserCookie(userData: any, expirationTimeInSeconds: number): void {

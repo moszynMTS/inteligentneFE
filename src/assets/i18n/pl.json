@@ -11,7 +11,12 @@
         "ProductTitle": "Nazwa",
         "Price" : "Cena",
         "Description": "Opis",
-        "CreateDate": "Data dodania"
+        "CreateDate": "Data dodania",
+        "Search" : "Wyszukaj",
+        "RemoveSearch" : "Wyczyść wyszukiwanie",
+        "Category" : "Kategoria",
+        "Material" : "Materiał",
+        "Gender" : "Płeć"
     },
     "Cart":{
         "Quantity" : "Ilość",
@@ -19,15 +24,34 @@
         "Buy" : "Kup"
     },
     "Account":{
+        "Title" : "Konto",
         "Username": "Nazwa konta",
         "Email" : "Email",
         "Joined": "Dołączono",
         "Login" : "Login",
-        "Password": "Hasło"
+        "Register" : "Zarejestruj",
+        "Password": "Hasło",
+        "Loggining" : "Logowanie",
+        "Registering" : "Rejestracja"
+    },
+    "Enum":{
+        "Category":{
+            "1" : "Pierścionki",
+            "2" : "Bransoletki"
+        },
+        "Material":{
+            "1" : "Złoto",
+            "2" : "Srebro"
+        },
+        "Gender":{
+            "1" : "Męskie",
+            "2" : "Damskie"
+        }
     },
     "Snackbar":{
         "Close" : "Zamknij",
         "Logged" : "Zalogowano",
+        "Registered": "Konto zarejestrowano, możesz się teraz zalogować",
         "Bought" : "Kupiono",
         "CartAdd" : "Dodano przedmiot do koszyka"
     },

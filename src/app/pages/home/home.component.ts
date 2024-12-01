@@ -5,6 +5,7 @@ import { DetailsComponent } from './details/details.component';
 import { TranslateService } from '@ngx-translate/core';
 import { ControllerNames } from 'src/app/shared/controlerNames';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -16,14 +17,26 @@ export class HomeComponent implements OnInit {
     { id:1, title: 'Product 1', price: 19.99 },
     { id:2, title: 'Product 2', price: 29.99 },
     { id:3, title: 'Product 3', price: 39.99 },
-    { id:4, title: 'Product 3', price: 39.99 },
-    { id:5, title: 'Product 3', price: 39.99 },
-    { id:6, title: 'Product 3', price: 39.99 },
-    { id:7, title: 'Product 3', price: 39.99 },
-    { id:8, title: 'Product 3', price: 39.99 },
-    { id:9, title: 'Product 3', price: 39.99 },
+    { id:4, title: 'Product 4', price: 39.99 },
+    { id:5, title: 'Product 5', price: 39.99 },
+    { id:6, title: 'Product 6', price: 39.99 },
+    { id:7, title: 'Product 7', price: 39.99 },
+    { id:8, title: 'Product 8', price: 39.99 },
+    { id:9, title: 'Product 9', price: 39.99 },
   ];
-  constructor(private apiCaller: ApiCaller, private dialog: MatDialog, private translate: TranslateService, private snackBar: MatSnackBar) { 
+  categories: any[] = [{id: 1},{id: 2}]
+  genders: any[] = [{id: 1},{id: 2}]
+  materials: any[] = [{id: 1},{id: 2}]
+  searchForm: FormGroup; 
+  constructor(private apiCaller: ApiCaller,private fb: FormBuilder, private dialog: MatDialog, private translate: TranslateService, private snackBar: MatSnackBar) { 
+    this.searchForm = this.fb.group({
+      searchTerm: [""],
+      category: [""],
+      gender: [""],
+      material: [""],
+      pageNumber: 1,
+      pageSize: 15,
+    });
   }
 
   ngOnInit(): void {
@@ -61,5 +74,12 @@ export class HomeComponent implements OnInit {
     this.apiCaller.ping().subscribe((res:any)=>{
       console.log("Ping res:", res);
     })
+  }
+  clearSearch(event: MouseEvent){
+    event.stopPropagation();
+    Object.keys(this.searchForm.controls).forEach(key => {
+      this.searchForm.get(key)?.patchValue('');
+    });
+    
   }
 }

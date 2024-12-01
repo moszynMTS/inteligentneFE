@@ -7,8 +7,6 @@
             <!-- Account Info Section -->
             <div class="col-md-12">
               <div class="card-body">
-                <h3 class="card-title py-2">{{ logged ?  username : 'Login' }}</h3>
-                
                 <div *ngIf="logged">
                   <p class="card-text">{{ 'Account.Username' | translate }}: <strong>{{ username }}</strong></p>
                   <p class="card-text">{{ 'Account.Email' | translate }}: <strong> abcd</strong></p>
@@ -16,23 +14,50 @@
                 </div>
   
                 <div *ngIf="!logged">
-                  <form [formGroup]="loginForm" (ngSubmit)="login()">
-                    <div class="form-group">
-                      <label for="username">{{ 'Account.Login' | translate }}</label>
-                      <input type="text" id="username" class="form-control" formControlName="username">
-                      <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-danger">
-                        {{ 'ValidationErrors.Invalid' | translate }}
-                      </div>
+                  <div class="col-12" style="display: flex; gap: 1rem">
+                    <div class="col-6" >
+                      <h3 class="card-title py-2">{{  'Account.Loggining' | translate }}</h3>
+                      <form [formGroup]="loginForm" (ngSubmit)="login()" style="width:80%">
+                        <div class="form-group">
+                          <label for="username">{{ 'Account.Login' | translate }}</label>
+                          <input type="text" id="username" class="form-control" formControlName="username">
+                          <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-danger">
+                            {{ 'ValidationErrors.Invalid' | translate }}
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">{{ 'Account.Password' | translate }}</label>
+                          <input type="password" id="password" class="form-control" formControlName="password">
+                          <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-danger">
+                            {{ 'ValidationErrors.Invalid' | translate }}
+                          </div>
+                        </div>
+                        <button type="submit" class="btn">{{ 'Account.Login' | translate }}</button>
+                      </form>
                     </div>
-                    <div class="form-group">
-                      <label for="password">{{ 'Account.Password' | translate }}</label>
-                      <input type="password" id="password" class="form-control" formControlName="password">
-                      <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-danger">
-                        {{ 'ValidationErrors.Invalid' | translate }}
-                      </div>
+                    <div class="col-6">
+                      <h3 class="card-title py-2">{{  'Account.Registering' | translate }}</h3>
+                      <form [formGroup]="registerForm" (ngSubmit)="register()" style="width:80%">
+                        <div class="form-group">
+                          <label for="username">{{ 'Account.Login' | translate }}</label>
+                          <input type="text" id="username" class="form-control" formControlName="username">
+                          <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched" class="text-danger">
+                            {{ 'ValidationErrors.Invalid' | translate }}
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">{{ 'Account.Password' | translate }}</label>
+                          <input type="password" id="password" class="form-control" formControlName="password">
+                          <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched" class="text-danger">
+                            {{ 'ValidationErrors.Invalid' | translate }}
+                          </div>
+                        </div>
+                        <button type="submit" class="btn">{{ 'Account.Register' | translate }}</button>
+                      </form>
+
                     </div>
-                    <button type="submit" class="btn">Login</button>
-                  </form>
+
+                  </div>
                 </div>
               </div>
             </div>

@@ -4,19 +4,27 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
-  exports:[
+  exports: [
     MatSnackBarModule,
     MatIconModule,
     TranslateModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatSelectModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }

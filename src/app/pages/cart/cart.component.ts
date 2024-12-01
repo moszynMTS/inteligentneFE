@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { ApiCaller } from 'src/app/shared/apiCaller';
+import { ControllerNames } from 'src/app/shared/controlerNames';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +15,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private snackBar: MatSnackBar,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private apiCaller: ApiCaller
     ) { }
 
   ngOnInit(): void {
@@ -58,12 +61,16 @@ export class CartComponent implements OnInit {
   }
 
   buyItems() {
-    this.snackBar.open(this.translate.instant('Snackbar.Bought'), this.translate.instant('Snackbar.Close'), {
-      duration: 3000,
-      horizontalPosition: 'center', 
-      verticalPosition: 'bottom'
-    });
-
-    console.log('Items will be bought!');
+    this.apiCaller.setControllerPath(ControllerNames.Product);
+    console.log("CARTITEMS", this.cartItems)
+    return;
+    this.apiCaller.addItem(this.cartItems).subscribe((res:any)=>{
+      console.log("ADDED", res)
+      this.snackBar.open(this.translate.instant('Snackbar.Bought'), this.translate.instant('Snackbar.Close'), {
+        duration: 3000,
+        horizontalPosition: 'center', 
+        verticalPosition: 'bottom'
+      });
+    })
   }
 }
