@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.apiCaller.getList(this.searchForm.value).subscribe((res:any) => {
       this.items = res.content.result;
       this.total = res.content.total;
-      this.totalPages =  res.content.total / this.searchForm.get('pageNumber')?.value;
+      this.totalPages =  res.content.total / this.searchForm.get('pageSize')?.value +1;
     })
   }
 
