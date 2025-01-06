@@ -42,6 +42,29 @@
           </div>
         </div>
       </div>
+
+      <div class="col-12">
+        <div class="card mb-3" style="flex-direction: row;">
+          <div class="col-6">
+              <h4><span class="recommendedStar"><mat-icon>star</mat-icon></span> {{ 'Cart.Recommended' | translate }}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="padding-right: 0px;">
+        <div class="col-sm-12 col-md-3 mb-3" *ngFor="let item of items">
+          <a class="card hoverEffect" >
+            <img src="{{item.url}}" class="card-img-top" alt="Item image" [routerLink]="['/details']" [queryParams]="{ id: item?.id }">
+            <a class="card-body" [routerLink]="['/details']" [queryParams]="{ id: item?.id }">
+              <h5 class="card-title">{{ item?.name }}</h5>
+              <p class="card-text">{{ item?.price }} zł</p>
+            </a>
+            <a mat-icon-button (click)="addCart($event, item)" class="add-to-cart-button">
+              <mat-icon>add_shopping_cart</mat-icon>
+            </a>
+            
+          </a>
+        </div>
+      </div>
   
     </div>
   </div>

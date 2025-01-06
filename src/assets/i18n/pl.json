@@ -23,7 +23,8 @@
     "Cart":{
         "Quantity" : "Ilość",
         "Total" : "Cena",
-        "Buy" : "Kup"
+        "Buy" : "Kup",
+        "Recommended" : "Polecane produkty"
     },
     "Account":{
         "Title" : "Konto",

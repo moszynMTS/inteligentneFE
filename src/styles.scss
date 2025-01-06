@@ -182,6 +182,9 @@ a {
     border: 1px solid $accent1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+.recommendedStar{
+    color: $accent1;
+}
 @media (max-width: 600px) {
     .iconTitle {
         display: none;

@@ -16,7 +16,8 @@
     "Cart": {
         "Quantity": "Quantity",
         "Total": "Total",
-        "Buy": "Buy"
+        "Buy": "Buy",
+        "Recommended" : "Recommended"
     },
     "Account": {
         "Username": "Username",
