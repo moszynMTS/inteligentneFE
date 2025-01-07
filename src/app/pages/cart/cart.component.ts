@@ -15,10 +15,10 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   searchForm: FormGroup; 
   items: any[] = [
-    { id:1, title: 'Product 1', price: 19.99, url: 'https://placehold.jp/150x150.png' },
-    { id:2, title: 'Product 2', price: 29.99, url: 'https://placehold.jp/150x150.png' },
-    { id:3, title: 'Product 3', price: 39.99, url: 'https://placehold.jp/150x150.png' },
-    { id:4, title: 'Product 4', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:1, title: 'Product 1', price: 19.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:2, title: 'Product 2', price: 29.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:3, title: 'Product 3', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:4, title: 'Product 4', price: 39.99, url: 'https://placehold.jp/150x150.png' },
   ];
   constructor(
     private snackBar: MatSnackBar,
@@ -74,10 +74,11 @@ export class CartComponent implements OnInit {
   }
 
   buyItems() {
-    this.apiCaller.setControllerPath(ControllerNames.Product);
-    console.log("CARTITEMS", this.cartItems)
-    return;
-    this.apiCaller.addItem(this.cartItems).subscribe((res:any)=>{
+    this.apiCaller.setControllerPath(ControllerNames.Cart);
+    let ids=  this.cartItems.map(x=>x.id).join(',');
+    console.log("ids", ids)
+
+    this.apiCaller.addItem({productIds: ids}).subscribe((res:any)=>{
       console.log("ADDED", res)
       this.snackBar.open(this.translate.instant('Snackbar.Bought'), this.translate.instant('Snackbar.Close'), {
         duration: 3000,
@@ -85,6 +86,8 @@ export class CartComponent implements OnInit {
         verticalPosition: 'bottom'
       });
     })
+    console.log("CARTITEMS", this.cartItems)
+    return;
   }
 
   loadRecommended(){

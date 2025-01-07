@@ -57,6 +57,7 @@
             <a class="card-body" [routerLink]="['/details']" [queryParams]="{ id: item?.id }">
               <h5 class="card-title">{{ item?.name }}</h5>
               <p class="card-text">{{ item?.price }} zł</p>
+              <p class="card-text">{{ item?.recomendationDescription }}</p>
             </a>
             <a mat-icon-button (click)="addCart($event, item)" class="add-to-cart-button">
               <mat-icon>add_shopping_cart</mat-icon>

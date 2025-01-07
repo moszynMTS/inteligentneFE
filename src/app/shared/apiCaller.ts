@@ -17,7 +17,7 @@ export class ApiCaller {
         return this.http.get<any>(this.APIUrl + this.typeName+'/pageable', {params: params });
     }
     getRecommendedList(params: {}): Observable<any[]> {
-        return this.http.get<any>(this.APIUrl + this.typeName+'/pageableRecommended', {params: params });
+        return this.http.get<any>(this.APIUrl + this.typeName+'/recommendedPageable', {params: params });
     }
     getItem(itemId: any): Observable<any[]> {
         return this.http.get<any>(this.APIUrl + this.typeName+'/'+itemId);

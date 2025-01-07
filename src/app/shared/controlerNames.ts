@@ -1,4 +1,5 @@
 export enum ControllerNames {
     Product = "Product",
-    Authorise = "Authorise"
+    Authorise = "Authorise",
+    Cart = "Cart"
 }

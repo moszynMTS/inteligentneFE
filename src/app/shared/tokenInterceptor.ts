@@ -14,7 +14,9 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.token != null) {
+    if (this.token == null) 
+      this.token = this.getCookie()
+    else {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${this.token}`
@@ -26,6 +28,7 @@ export class TokenInterceptor implements HttpInterceptor {
   }
   getCookie(): string | null {
     const value = `; ${document.cookie}`;
+    console.log(value)
     const parts = value.split(`; token=`);
     if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
     return null;

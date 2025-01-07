@@ -14,15 +14,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   items: any[] = [
-    { id:1, title: 'Product 1', price: 19.99, url: 'https://placehold.jp/150x150.png'},
-    { id:2, title: 'Product 2', price: 29.99, url: 'https://placehold.jp/150x150.png' },
-    { id:3, title: 'Product 3', price: 39.99, url: 'https://placehold.jp/150x150.png' },
-    { id:4, title: 'Product 4', price: 39.99, url: 'https://placehold.jp/150x150.png' },
-    { id:5, title: 'Product 5', price: 39.99, url: 'https://placehold.jp/150x150.png' },
-    { id:6, title: 'Product 6', price: 39.99, url: 'https://placehold.jp/150x150.png' },
-    { id:7, title: 'Product 7', price: 39.99, url: 'https://placehold.jp/150x150.png' },
-    { id:8, title: 'Product 8', price: 39.99, url: 'https://placehold.jp/150x150.png' },
-    { id:9, title: 'Product 9', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:1, title: 'Product 1', price: 19.99, url: 'https://placehold.jp/150x150.png'},
+    // { id:2, title: 'Product 2', price: 29.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:3, title: 'Product 3', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:4, title: 'Product 4', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:5, title: 'Product 5', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:6, title: 'Product 6', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:7, title: 'Product 7', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:8, title: 'Product 8', price: 39.99, url: 'https://placehold.jp/150x150.png' },
+    // { id:9, title: 'Product 9', price: 39.99, url: 'https://placehold.jp/150x150.png' },
   ];
   categories: any[] = [{id: 1},{id: 2}]
   genders: any[] = [{id: 1},{id: 2}]
