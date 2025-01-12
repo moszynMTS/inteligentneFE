@@ -1,5 +1,6 @@
 # InteligentneFE
 
+Main focus for this project is to create a simple online-based jewelry shop. This project does not include the full functionality, it is only a mockup to show the possible direction in which a developer might go with a similar online-based shop. 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
 ## Development server
