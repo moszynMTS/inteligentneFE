@@ -23,6 +23,7 @@ export class DetailsComponent implements OnInit {
       this.apiCaller.setControllerPath(ControllerNames.Product)
       this.apiCaller.getItem(id).subscribe((res:any)=>{
         this.item = res.content;
+        console.log(this.item)
       })
     });
   }

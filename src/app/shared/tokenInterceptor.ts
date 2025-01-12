@@ -28,7 +28,6 @@ export class TokenInterceptor implements HttpInterceptor {
   }
   getCookie(): string | null {
     const value = `; ${document.cookie}`;
-    console.log(value)
     const parts = value.split(`; token=`);
     if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
     return null;

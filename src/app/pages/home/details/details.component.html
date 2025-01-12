@@ -15,7 +15,13 @@
               <p class="card-text">{{ 'Home.Price' | translate }}: <strong>{{ item?.price }} zł</strong></p>
               <p class="card-text">{{ 'Home.Description' | translate }}: </p>
               <p>{{ item?.description }}</p>
-              <p class="card-text ml-auto">{{ 'Home.CreateDate' | translate }}: {{ item?.created | date:'shortDate' }}</p>
+              <p class="card-text ml-auto">{{ 'Home.CreateDate' | translate }}: {{ item?.created | date:'shortDate' }}
+              </p>
+              <p class="card-text ml-auto">{{ 'Home.Gender' | translate }}: {{ "Home."+item?.productGender.name | translate }}</p>
+              <p class="card-text ml-auto">{{ 'Home.Category' | translate }}: {{ item?.productCategory.name}}</p>
+              <p class="card-text ml-auto">{{ 'Home.Material' | translate }}: {{ item?.productMaterial.name}}</p>
+              <p class="card-text ml-auto">{{ 'Home.Season' | translate }}: {{ item?.productSeason.name}}</p>
+              <p class="card-text ml-auto">{{ 'Home.Type' | translate }}: {{ item?.productType.name}}</p>
               <a mat-icon-button (click)="addCart($event, item)" class="add-to-cart-button">
                 <mat-icon>add_shopping_cart</mat-icon>
               </a>

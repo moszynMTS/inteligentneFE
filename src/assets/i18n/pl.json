@@ -17,6 +17,10 @@
         "Category" : "Kategoria",
         "Material" : "Materiał",
         "Gender" : "Płeć",
+        "Season" : "Sezon",
+        "Type" : "Typ",
+        "female" : "Damskie",
+        "male" : "Męskie",
         "NextPage": "Następna strona",
         "PrevPage" : "Poprzednia strona"
     },

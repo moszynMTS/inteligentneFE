@@ -39,6 +39,9 @@ export class HomeComponent implements OnInit {
       pageNumber: 1,
       pageSize: 16,
     });
+    this.searchForm.valueChanges.subscribe((res:any)=>{
+      this.loadData();
+    })
   }
 
   ngOnInit(): void {
@@ -47,6 +50,7 @@ export class HomeComponent implements OnInit {
 
   loadData(){
     this.apiCaller.setControllerPath(ControllerNames.Product);
+    console.log(this.searchForm.value)
     this.apiCaller.getList(this.searchForm.value).subscribe((res:any) => {
       this.items = res.content.result;
       this.total = res.content.total;
